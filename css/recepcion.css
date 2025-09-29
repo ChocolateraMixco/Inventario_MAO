@@ -1,0 +1,148 @@
+.inventario-recepcion-section {
+    width: 95%;
+    margin: 20px auto;
+    font-family: 'Verdana', sans-serif;
+}
+
+.inventario-recepcion-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e65100;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.inventario-recepcion-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fffaf5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.inventario-recepcion-table th,
+.inventario-recepcion-table td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.inventario-recepcion-table thead {
+    background-color: #ff7043;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.inventario-recepcion-table tbody tr:nth-child(even) {
+    background-color: #ffe0b2;
+}
+
+.inventario-recepcion-table tbody tr:hover {
+    background-color: #ffccbc;
+    transition: 0.3s;
+}
+
+.recepcion-volver-container {
+    width: 100%;
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.recepcion-btn-volver {
+    background: #ff7043;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.recepcion-btn-volver:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE PARA IPAD */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .inventario-recepcion-section {
+        width: 98%;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    
+    .inventario-recepcion-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+    
+    .inventario-recepcion-table th,
+    .inventario-recepcion-table td {
+        padding: 16px 20px;
+        font-size: 1.05rem;
+    }
+    
+    .recepcion-btn-volver {
+        padding: 12px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Para iPad en orientación vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .inventario-recepcion-table th,
+    .inventario-recepcion-table td {
+        padding: 14px 16px;
+    }
+    
+    .inventario-recepcion-section {
+        width: 97%;
+        padding: 0 10px;
+    }
+}
+
+/* Para iPad en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .inventario-recepcion-table th,
+    .inventario-recepcion-table td {
+        padding: 18px 22px;
+    }
+    
+    .inventario-recepcion-section {
+        max-width: 1200px;
+    }
+}
+
+/* Para iPad Pro 12.9" */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .inventario-recepcion-section {
+        max-width: 1300px;
+    }
+    
+    .inventario-recepcion-table th,
+    .inventario-recepcion-table td {
+        padding: 16px 22px;
+        font-size: 1.1rem;
+    }
+    
+    .inventario-recepcion-section h2 {
+        font-size: 2.3rem;
+    }
+}
+
+/* Para iPad Mini */
+@media (min-width: 768px) and (max-width: 1024px) and (max-height: 1024px) {
+    .inventario-recepcion-table th,
+    .inventario-recepcion-table td {
+        padding: 12px 16px;
+    }
+    
+    .inventario-recepcion-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+}

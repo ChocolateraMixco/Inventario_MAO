@@ -1,0 +1,146 @@
+.caja-section {
+    width: 95%;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.caja-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1e3a8a; /* azul oscuro elegante */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.caja-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #1e40af; /* borde azul */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.caja-table th, .caja-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #dbeafe;
+}
+
+.caja-table thead {
+    background-color: #1e40af;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.caja-table tbody tr:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+.caja-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: 0.3s;
+}
+
+.caja-cont-volver {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-boton-volver {
+    padding: 10px 20px;
+    background-color: #1e3a8a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.caja-boton-volver:hover {
+    background-color: #1d4ed8;
+}
+
+/* RESPONSIVE PARA IPAD */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .caja-section {
+        width: 98%;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    
+    .caja-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+    
+    .caja-table th,
+    .caja-table td {
+        padding: 16px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .caja-boton-volver {
+        padding: 12px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Para iPad en orientación vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .caja-table th,
+    .caja-table td {
+        padding: 14px 16px;
+    }
+    
+    .caja-section {
+        width: 97%;
+        padding: 0 10px;
+    }
+}
+
+/* Para iPad en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .caja-table th,
+    .caja-table td {
+        padding: 18px 22px;
+    }
+    
+    .caja-section {
+        max-width: 1200px;
+    }
+}
+
+/* Para iPad Pro 12.9" */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .caja-section {
+        max-width: 1300px;
+    }
+    
+    .caja-table th,
+    .caja-table td {
+        padding: 16px 22px;
+        font-size: 1.15rem;
+    }
+    
+    .caja-section h2 {
+        font-size: 2.3rem;
+    }
+}
+
+/* Para iPad Mini */
+@media (min-width: 768px) and (max-width: 1024px) and (max-height: 1024px) {
+    .caja-table th,
+    .caja-table td {
+        padding: 12px 16px;
+    }
+    
+    .caja-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+}

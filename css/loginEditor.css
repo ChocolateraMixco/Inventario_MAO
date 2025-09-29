@@ -1,0 +1,83 @@
+/* Pantalla completa */
+.pantalla-login2 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* tonos azules claros */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2llbG8lMjBhc3Ryb25vbWV8ZW58MHx8MHx8fDA%3D');
+    background-size: cover;
+}
+
+/* Contenedor interno del login */
+.contenedor-login2 {
+    width: 380px;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Título */
+.contenedor-login2 h2 {
+    color: #0d1b2a;
+    margin: 0;
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Formulario */
+.formulario-login2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Inputs */
+.input-usuario2,
+.input-contrasena2 {
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(13,27,42,0.2);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: rgba(255,255,255,0.3);
+    color: #0d1b2a;
+}
+
+.input-usuario2:focus,
+.input-contrasena2:focus {
+    border-color: #3a86ff;
+    box-shadow: 0 0 10px rgba(58,134,255,0.5);
+}
+
+/* Botones */
+.boton-ingresar2,
+.boton-volver2 {
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(135deg, #3a86ff, #00bfff);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-ingresar2:hover,
+.boton-volver2:hover {
+    background: linear-gradient(135deg, #00bfff, #3a86ff);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}

@@ -1,0 +1,175 @@
+.compras-section {
+    width: 95%;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.compras-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #166534; /* verde oscuro elegante */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.compras-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #15803d; /* borde verde */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.compras-table th, .compras-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #bbf7d0; /* verde claro */
+}
+
+.compras-table thead {
+    background-color: #15803d;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.compras-table tbody tr:nth-child(even) {
+    background-color: #dcfce7; /* verde muy claro */
+}
+
+.compras-table tbody tr:hover {
+    background-color: #bbf7d0;
+    transition: 0.3s;
+}
+
+/* Contenedor de botones */
+.cont-botones {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Botones generales */
+.cont-botones button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+/* Colores de cada botón */
+.boton-volverCompras {
+    background-color: #166534;
+}
+.boton-volverCompras:hover {
+    background-color: #15803d;
+}
+
+.boton-guardar {
+    background-color: #16a34a;
+}
+.boton-guardar:hover {
+    background-color: #15803d;
+}
+
+.boton-agregar {
+    background-color: #28a745;
+}
+.boton-agregar:hover {
+    background-color: #218838;
+}
+
+.boton-restaurar {
+    background-color: #ffc107;
+    color: black;
+}
+.boton-restaurar:hover {
+    background-color: #e0a800;
+}
+
+/* RESPONSIVE PARA IPAD */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .compras-section {
+        width: 98%;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    
+    .compras-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+    
+    .compras-table th,
+    .compras-table td {
+        padding: 16px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .cont-botones button {
+        padding: 12px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Para iPad en orientación vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .compras-table th,
+    .compras-table td {
+        padding: 14px 16px;
+    }
+    
+    .compras-section {
+        width: 97%;
+        padding: 0 10px;
+    }
+}
+
+/* Para iPad en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .compras-table th,
+    .compras-table td {
+        padding: 18px 22px;
+    }
+    
+    .compras-section {
+        max-width: 1200px;
+    }
+}
+
+/* Para iPad Pro 12.9" */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .compras-section {
+        max-width: 1300px;
+    }
+    
+    .compras-table th,
+    .compras-table td {
+        padding: 16px 22px;
+        font-size: 1.15rem;
+    }
+    
+    .compras-section h2 {
+        font-size: 2.3rem;
+    }
+}
+
+/* Para iPad Mini */
+@media (min-width: 768px) and (max-width: 1024px) and (max-height: 1024px) {
+    .compras-table th,
+    .compras-table td {
+        padding: 12px 16px;
+    }
+    
+    .compras-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+}

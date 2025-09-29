@@ -1,0 +1,147 @@
+.primaria-elemental-section {
+    width: 95%;
+    margin: 20px auto;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.primaria-elemental-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FF6F00;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+}
+
+.primaria-elemental-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fafafa;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.primaria-elemental-table th, 
+.primaria-elemental-table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.primaria-elemental-table thead {
+    background-color: #FF8F00;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.primaria-elemental-table tbody tr:nth-child(even) {
+    background-color: #FFECB3;
+}
+
+.primaria-elemental-table tbody tr:hover {
+    background-color: #FFE082;
+    transition: 0.3s;
+}
+
+.elemental-volver-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.elemental-btn-volver {
+    background: #FF8F00;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.elemental-btn-volver:hover {
+    background: #FF6F00;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE PARA IPAD */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .primaria-elemental-section {
+        width: 98%;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+    
+    .primaria-elemental-section h2 {
+        font-size: 2.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .primaria-elemental-table th,
+    .primaria-elemental-table td {
+        padding: 16px 20px;
+        font-size: 1.05rem;
+    }
+    
+    .elemental-btn-volver {
+        padding: 12px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Para iPad en orientación vertical */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .primaria-elemental-table th,
+    .primaria-elemental-table td {
+        padding: 14px 16px;
+    }
+    
+    .primaria-elemental-section {
+        width: 97%;
+        padding: 0 10px;
+    }
+}
+
+/* Para iPad en orientación horizontal */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .primaria-elemental-table th,
+    .primaria-elemental-table td {
+        padding: 18px 22px;
+    }
+    
+    .primaria-elemental-section {
+        max-width: 1200px;
+    }
+}
+
+/* Para iPad Pro 12.9" */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .primaria-elemental-section {
+        max-width: 1300px;
+    }
+    
+    .primaria-elemental-table th,
+    .primaria-elemental-table td {
+        padding: 16px 22px;
+        font-size: 1.1rem;
+    }
+    
+    .primaria-elemental-section h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Para iPad Mini */
+@media (min-width: 768px) and (max-width: 1024px) and (max-height: 1024px) {
+    .primaria-elemental-table th,
+    .primaria-elemental-table td {
+        padding: 12px 16px;
+    }
+    
+    .primaria-elemental-section h2 {
+        font-size: 1.9rem;
+        margin-bottom: 20px;
+    }
+}
