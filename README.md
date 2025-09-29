@@ -1,3 +1,3 @@
 # Inventario_MAO
 
-#https://inventario-mao-ten.vercel.app/
+# https://inventario-mao-ten.vercel.app/
