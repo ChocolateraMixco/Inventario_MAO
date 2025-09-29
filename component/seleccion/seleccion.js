@@ -9,6 +9,12 @@ function seleccion(){
     let headerSele = document.createElement('header');
     headerSele.className = "header-sele";
 
+    // BOTÓN DE DOCUMENTACIÓN EN EL HEADER
+    let btnDocumentacion = document.createElement('button');
+    btnDocumentacion.className = "documentacion";
+    btnDocumentacion.textContent = "📋 Descargar Documentación PDF";
+    btnDocumentacion.title = "Descargar documentación del sistema";
+
     let titulo = document.createElement('h1');
     titulo.textContent = "Colegio Manos a la Obra";
 
@@ -16,7 +22,8 @@ function seleccion(){
     logo.src = "./img/logo.avif"
 
     headerSele.appendChild(titulo);
-    headerSele.appendChild(logo)
+    headerSele.appendChild(logo);
+    headerSele.appendChild(btnDocumentacion);
     seccionSele.appendChild(headerSele);
 
     let divBotones = document.createElement('div')
@@ -39,28 +46,42 @@ function seleccion(){
 
     seccionSele.appendChild(divBotones)
 
-    // Evento click en Administracion
+    // Eventos de click
     buttonAdmin.addEventListener('click', () => {
         const root = document.getElementById('root');
         root.innerHTML = ""; 
         root.appendChild(loginAdmin()); 
     });
 
-    // Evento click en Editor
     buttonEditor.addEventListener('click', () => {
         const root = document.getElementById('root');
         root.innerHTML = ""; 
         root.appendChild(loginEditor()); 
     });
 
-    // Evento click en Vista
     buttonView.addEventListener('click', () => {
         const root = document.getElementById('root');
         root.innerHTML = ""; 
         root.appendChild(loginVista()); 
     });
 
+    // Evento para descargar PDF directamente
+    btnDocumentacion.addEventListener('click', descargarPDFDirectamente);
+
     return seccionSele;
+}
+
+// FUNCIÓN CORREGIDA - RUTA EXACTA
+function descargarPDFDirectamente() {
+    // Ruta corregida según tu estructura
+    const enlace = document.createElement('a');
+    enlace.href = './documentacion/Documentación Inventario MAO.pdf';
+    enlace.download = 'Documentacion_Sistema_Inventario_MAO.pdf';
+    enlace.style.display = 'none';
+    
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
 }
 
 export { seleccion }

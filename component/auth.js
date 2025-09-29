@@ -1,28 +1,28 @@
 const usuarios = [
     {
-        username: "admin",
-        password: "admin123",
+        username: "Admin MAO",
+        password: "adminmao123",
         rol: "admin",
         nombre: "Administrador Principal",
         permisos: ["ver", "editar", "eliminar"]
     },
     {
-        username: "editor1",
-        password: "editor123",
+        username: "Editor MAO 1",
+        password: "editormao123",
         rol: "editor", 
         nombre: "Editor Uno",
         permisos: ["ver", "editar"]
     },
     {
-        username: "editor2", 
-        password: "editor456",
+        username: "Editor MAO 2", 
+        password: "editormao456",
         rol: "editor",
         nombre: "Editor Dos",
         permisos: ["ver", "editar"]
     },
     {
-        username: "vista",
-        password: "vista123",
+        username: "Vista MAO",
+        password: "vistamao123",
         rol: "vista",
         nombre: "Usuario de Solo Vista",
         permisos: ["ver"]

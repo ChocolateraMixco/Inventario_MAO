@@ -174,3 +174,11 @@
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 15px 30px rgba(26, 115, 232, 0.4);
 }
+
+.documentacion {
+  width: 10rem;
+  height: 4rem;
+  background-color: #030957;
+  color: #fff;
+  border-radius: 10px;
+}
