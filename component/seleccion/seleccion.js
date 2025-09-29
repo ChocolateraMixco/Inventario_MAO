@@ -76,7 +76,7 @@ function descargarPDFDirectamente() {
     // Ruta corregida según tu estructura
     const enlace = document.createElement('a');
     enlace.href = './documentacion/Documentación Inventario MAO.pdf';
-    enlace.download = 'Documentacion_Sistema_Inventario_MAO.pdf';
+    enlace.download = 'Documentacion-Inventario-MAO.pdf';
     enlace.style.display = 'none';
     
     document.body.appendChild(enlace);
