@@ -1,4 +1,5 @@
 import { seleccion } from "../seleccion/seleccion.js";
+import { obtenerUsuarioActual } from "../auth.js";
 import { admisiones } from "./viewsBotones/admisiones.js";
 import { caja } from "./viewsBotones/caja.js";
 import { compras } from "./viewsBotones/compras.js";
@@ -29,9 +30,10 @@ import { direTecnica2 } from "./viewsBotones/direccion-tecnica-2.js";
 import { diseño } from "./viewsBotones/diseno.js";
 import { eventos } from "./viewsBotones/coordinacion-eventos.js";
 import { administrativo } from "./viewsBotones/asistente-administrativo.js";
+import { panelAdminUsuarios } from "../admin/admin.js";
+import { informatica } from "./viewsBotones/informatica.js";
 
 function vista(){
-
     let seccionVista = document.createElement('section');
     seccionVista.className = "seccion-vista";
     
@@ -59,6 +61,21 @@ function vista(){
         root.innerHTML = ""; 
         root.appendChild(seleccion()); 
     });
+
+    // --- INICIO CAMBIO PARA ADMIN ---
+    const usuario = obtenerUsuarioActual();
+    if (usuario && usuario.rol === "admin") {
+        let btnAdmin = document.createElement('button');
+        btnAdmin.textContent = "Administración de Usuarios";
+        btnAdmin.className = "btn-admin";
+        headerSele.appendChild(btnAdmin);
+
+        btnAdmin.addEventListener('click', () => {
+            const root = document.getElementById('root');
+            root.innerHTML = ""; 
+            root.appendChild(panelAdminUsuarios());
+        });
+    }
 
     let logo = document.createElement('img');
     logo.src = "./img/logo.avif"
@@ -371,6 +388,20 @@ function vista(){
         root.innerHTML = ""; 
         root.appendChild(administrativo()); 
     });
+
+ // --- INICIO BOTÓN INFORMÁTICA SOLO PARA ADMIN ---
+    if (usuario && usuario.rol === "admin") {
+        let buttonInformatica = document.createElement('button');
+        buttonInformatica.className = "btn-vista";
+        buttonInformatica.textContent = "Informática";
+        divBotones.appendChild(buttonInformatica);
+        buttonInformatica.addEventListener('click', () => {
+            const root = document.getElementById('root');
+            root.innerHTML = ""; 
+            root.appendChild(informatica()); 
+        });
+    }
+    // --- FIN BOTÓN INFORMÁTICA ---
 
     seccionVista.appendChild(divBotones)
 

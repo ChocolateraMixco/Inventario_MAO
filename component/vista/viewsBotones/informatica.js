@@ -5,28 +5,25 @@ function obtenerUsuarioActual() {
     return usuario ? JSON.parse(usuario) : null;
 }
 
-function admisiones() {
-    const datosGuardados = localStorage.getItem('admisionesEditadas');
-    const datosCompras = datosGuardados ? JSON.parse(datosGuardados) : [
-        { cantidad: 1, producto: "Laptop Lenovo 11TH GEN I3-1115G4 RAM 8GB", codigo: "PF2RAHLE", departamento: "ADMISIONES", responsable: "ALICIA GARCIA" },
-        { cantidad: 1, producto: "Laptop Lenovo 11TH GEN I3-1115G4 RAM 8GB", codigo: "PF2RAHMH", departamento: "ADMISIONES", responsable: "ALICIA GARCIA" },
-        { cantidad: 1, producto: "Laptop Lenovo 11TH GEN I3-1115G4 RAM 8GB", codigo: "PF2RADMX", departamento: "ADMISIONES", responsable: "ALICIA GARCIA" },
-        { cantidad: 1, producto: "Laptop Dell 12HT I3-1215U RAM 8GB", codigo: "/", departamento: "ADMISIONES", responsable: "ALICIA GARCIA" },
-        { cantidad: 1, producto: "Bocinas Brocs", codigo: "/", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "Monitor Brocs", codigo: "100865", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "UPS", codigo: "/", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "Teclado Xtech", codigo: "/", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "Mouse Xtech", codigo: "170914316", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "CPU Intel I5-7400 RAM 8GB", codigo: "/", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "Radio", codigo: "/", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
-        { cantidad: 1, producto: "Extensión Telefónica", codigo: "1005", departamento: "ADMISIONES", responsable: "CANDY CONTRERAS" },
+function informatica() {
+    const datosGuardados = localStorage.getItem('informaticaEditados');
+    const datosInformatica = datosGuardados ? JSON.parse(datosGuardados) : [
+        { cantidad: 12, producto: "Monitores", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 46, producto: "Audífonos DELTON", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 48, producto: "Teclados CIBO", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 24, producto: "Android TV", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 1, producto: "CPU", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 2, producto: "Monitor", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 1, producto: "Mouse", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 1, producto: "Teclado", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
+        { cantidad: 1, producto: "Equipo de Sonido", codigo: "/", departamento: "INFORMÁTICA", responsable: "LUDIN SOLÍS" },
     ];
 
     const section = document.createElement('section');
-    section.className = "inventario-admisiones-section";
+    section.className = "informatica-section";
 
     const titulo = document.createElement('h2');
-    titulo.textContent = "Inventario de Admisiones";
+    titulo.textContent = "Inventario de Informática";
     section.appendChild(titulo);
 
     if (datosGuardados) {
@@ -39,9 +36,8 @@ function admisiones() {
     }
 
     const table = document.createElement('table');
-    table.className = "inventario-admisiones-table";
+    table.className = "informatica-table";
 
-    // Encabezados
     const thead = document.createElement('thead');
     const trHead = document.createElement('tr');
     ["Cantidad", "Producto", "Código", "Departamento", "Responsable", "Acciones"].forEach(text => {
@@ -55,8 +51,26 @@ function admisiones() {
     const tbody = document.createElement('tbody');
     const usuario = obtenerUsuarioActual();
 
-    // Filas
-    datosCompras.forEach((item, index) => {
+    function guardarCambios() {
+        const filas = table.querySelectorAll('tbody tr');
+        const nuevosDatos = [];
+        filas.forEach(fila => {
+            const celdas = fila.querySelectorAll('td:not(:last-child)');
+            if (celdas.length >= 5) {
+                nuevosDatos.push({
+                    cantidad: celdas[0].textContent,
+                    producto: celdas[1].textContent,
+                    codigo: celdas[2].textContent,
+                    departamento: celdas[3].textContent,
+                    responsable: celdas[4].textContent
+                });
+            }
+        });
+        localStorage.setItem('informaticaEditados', JSON.stringify(nuevosDatos));
+        return nuevosDatos;
+    }
+
+    datosInformatica.forEach((item) => {
         const tr = document.createElement('tr');
         [item.cantidad, item.producto, item.codigo, item.departamento, item.responsable].forEach(text => {
             const td = document.createElement('td');
@@ -64,7 +78,6 @@ function admisiones() {
             tr.appendChild(td);
         });
 
-        // Acciones (solo admin)
         const tdAcciones = document.createElement('td');
         if (usuario && usuario.rol === 'admin') {
             const botonEliminar = document.createElement('button');
@@ -88,45 +101,47 @@ function admisiones() {
     table.appendChild(tbody);
     section.appendChild(table);
 
-    // Contenedor botones
-    const contBotones = document.createElement('div');
-    contBotones.className = "admisiones-volver-container";
+    const contVolver = document.createElement('div');
+    contVolver.className = "informatica-cont-volver";
+    section.appendChild(contVolver);
 
     const botonVolver = document.createElement('button');
     botonVolver.textContent = "Volver";
-    botonVolver.className = "admisiones-btn-volver";
+    botonVolver.className = "informatica-boton-volver";
+    contVolver.appendChild(botonVolver);
+
     botonVolver.addEventListener('click', () => {
         document.getElementById('root').innerHTML = "";
         document.getElementById('root').appendChild(vista());
-        document.getElementById('root').appendChild(admin());
     });
-    contBotones.appendChild(botonVolver);
 
     if (usuario && (usuario.rol === 'editor' || usuario.rol === 'admin')) {
-        const botonGuardar = document.createElement('button');
-        botonGuardar.textContent = "Guardar Cambios";
-        botonGuardar.className = "btn-guardar";
-        botonGuardar.style.marginLeft = "10px";
-        contBotones.appendChild(botonGuardar);
+        function hacerCeldasEditables(fila) {
+            const celdas = fila.querySelectorAll('td:not(:last-child)');
+            celdas.forEach(celda => {
+                celda.setAttribute('contenteditable', 'true');
+                celda.style.cursor = 'text';
+            });
+        }
+
+        table.querySelectorAll('tbody tr').forEach(hacerCeldasEditables);
 
         if (usuario.rol === 'admin') {
             const botonAgregar = document.createElement('button');
             botonAgregar.textContent = "➕ Agregar";
-            botonAgregar.className = "boton-agregar";
+            botonAgregar.className = "btn-agregar";
             botonAgregar.style.marginLeft = "10px";
-            botonAgregar.style.backgroundColor = "#28a745";
-            contBotones.appendChild(botonAgregar);
+            contVolver.appendChild(botonAgregar);
 
             const botonRestaurar = document.createElement('button');
             botonRestaurar.textContent = "🔄 Restaurar";
-            botonRestaurar.className = "boton-restaurar";
+            botonRestaurar.className = "btn-restaurar";
             botonRestaurar.style.marginLeft = "10px";
-            botonRestaurar.style.backgroundColor = "#ffc107";
-            contBotones.appendChild(botonRestaurar);
+            contVolver.appendChild(botonRestaurar);
 
             botonAgregar.addEventListener('click', () => {
                 const nuevaFila = document.createElement('tr');
-                [1, "Nuevo Producto", "/", "ADMISIONES", ""].forEach(text => {
+                [1, "Nuevo Producto", "/", "INFORMÁTICA", ""].forEach(text => {
                     const td = document.createElement('td');
                     td.textContent = text;
                     nuevaFila.appendChild(td);
@@ -151,42 +166,18 @@ function admisiones() {
 
             botonRestaurar.addEventListener('click', () => {
                 if (confirm('¿Restaurar datos originales?')) {
-                    localStorage.removeItem('admisionesEditadas');
+                    localStorage.removeItem('informaticaEditados');
                     document.getElementById('root').innerHTML = "";
-                    document.getElementById('root').appendChild(admisiones());
+                    document.getElementById('root').appendChild(informatica());
                 }
             });
         }
 
-        // Función para hacer celdas editables
-        function hacerCeldasEditables(fila) {
-            const celdas = fila.querySelectorAll('td:not(:last-child)');
-            celdas.forEach(celda => {
-                celda.setAttribute('contenteditable', 'true');
-                celda.style.cursor = 'text';
-            });
-        }
-
-        table.querySelectorAll('tbody tr').forEach(hacerCeldasEditables);
-
-        function guardarCambios() {
-            const filas = table.querySelectorAll('tbody tr');
-            const nuevosDatos = [];
-            filas.forEach(fila => {
-                const celdas = fila.querySelectorAll('td:not(:last-child)');
-                if (celdas.length >= 5) {
-                    nuevosDatos.push({
-                        cantidad: celdas[0].textContent,
-                        producto: celdas[1].textContent,
-                        codigo: celdas[2].textContent,
-                        departamento: celdas[3].textContent,
-                        responsable: celdas[4].textContent
-                    });
-                }
-            });
-            localStorage.setItem('admisionesEditadas', JSON.stringify(nuevosDatos));
-            return nuevosDatos;
-        }
+        const botonGuardar = document.createElement('button');
+        botonGuardar.textContent = "Guardar Cambios";
+        botonGuardar.className = "btn-guardar";
+        botonGuardar.style.marginLeft = "10px";
+        contVolver.appendChild(botonGuardar);
 
         botonGuardar.addEventListener('click', () => {
             const datos = guardarCambios();
@@ -205,8 +196,7 @@ function admisiones() {
         setTimeout(() => mensajeElement.remove(), 3000);
     }
 
-    section.appendChild(contBotones);
     return section;
 }
 
-export { admisiones };
+export { informatica };

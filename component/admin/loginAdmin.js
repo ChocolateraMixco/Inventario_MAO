@@ -1,5 +1,5 @@
 import { seleccion } from "../seleccion/seleccion.js";
-import { verificarLogin } from "../auth.js";
+import { iniciarSesion } from "../auth.js";
 import { vista } from "../vista/vista.js";
 
 function loginAdmin() {
@@ -57,7 +57,7 @@ function loginAdmin() {
         const username = inputUsuario.value.trim();
         const password = inputContrasena.value.trim();
         
-        const usuario = verificarLogin(username, password);
+        const usuario = iniciarSesion({username, password});
         
         if (usuario && usuario.rol === "admin") {
             sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuario));

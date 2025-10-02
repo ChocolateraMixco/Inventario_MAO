@@ -1,5 +1,5 @@
 import { seleccion } from "../seleccion/seleccion.js";
-import { verificarLogin } from "../auth.js";  // ← Importar desde auth.js
+import { iniciarSesion } from "../auth.js";  // ← Importar desde auth.js
 import { vista } from "../vista/vista.js";
 
 function loginEditor() {
@@ -66,7 +66,7 @@ function loginEditor() {
         const username = inputUsuario.value.trim();
         const password = inputContrasena.value.trim();
         
-        const usuario = verificarLogin(username, password);
+        const usuario = iniciarSesion({username, password});
         
         if (usuario) {
             sessionStorage.setItem('usuarioLogueado', JSON.stringify(usuario));
